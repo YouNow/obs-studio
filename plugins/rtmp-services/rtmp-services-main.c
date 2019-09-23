@@ -80,7 +80,9 @@ bool obs_module_load(void)
 	proc_handler_add(ph, "void twitch_ingests_refresh(int seconds)",
 			 refresh_callback, NULL);
 
-#if !defined(_WIN32) || CHECK_FOR_SERVICE_UPDATES
+// younow - disable services.json updater in our custom build
+//#if !defined(_WIN32) || CHECK_FOR_SERVICE_UPDATES
+#if 0
 	char *local_dir = obs_module_file("");
 	char *cache_dir = obs_module_config_path("");
 
