@@ -1502,7 +1502,7 @@
         },
         {
             "name": "YouNow",
-            "common": false,
+            "common": true,
             "servers": [
                 {
                     "name": "younow.com",

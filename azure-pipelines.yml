@@ -79,13 +79,18 @@ jobs:
     inputs: 
       msbuildArguments: '/m /p:Configuration=RelWithDebInfo'
       solution: .\build64\obs-studio.sln
+  - task: MSBuild@1
+    displayName: 'Package 64-bit'
+    inputs: 
+      msbuildArguments: '/m /p:Configuration=RelWithDebInfo'
+      solution: .\build64\PACKAGE.vcxproj
   - script: ./CI/before-deploy-win.cmd
     condition: ne(variables['Build.Reason'], 'PullRequest')
     displayName: 'Before deploy'
   - task: PublishBuildArtifacts@1
     condition: ne(variables['Build.Reason'], 'PullRequest')
     inputs:
-      pathtoPublish: './build'
+      pathtoPublish: './build64'
       artifactName: winbuild
 
 - job: 'Build_Linux'
