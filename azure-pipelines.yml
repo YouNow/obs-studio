@@ -41,6 +41,7 @@ jobs:
       artifactName: build
 
 - job: 'Build_Windows32'
+  condition: False
   pool:
     vmImage: 'vs2017-win2016'
   steps:
@@ -94,6 +95,7 @@ jobs:
       artifactName: winbuild
 
 - job: 'Build_Linux'
+  condition: False
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
