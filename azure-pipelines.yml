@@ -91,8 +91,8 @@ jobs:
   - task: PublishBuildArtifacts@1
     condition: ne(variables['Build.Reason'], 'PullRequest')
     inputs:
-      pathtoPublish: './build64'
-      artifactName: winbuild
+      pathtoPublish: './build'
+      artifactName: build
 
 - job: 'Build_Linux'
   condition: False
