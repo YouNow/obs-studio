@@ -153,7 +153,6 @@ private:
 	long disableSaving = 1;
 	bool projectChanged = false;
 	bool previewEnabled = true;
-	bool fullscreenInterface = false;
 
 	const char *copyString;
 	const char *copyFiltersString = nullptr;
@@ -386,6 +385,7 @@ private:
 	volatile bool previewProgramMode = false;
 	obs_hotkey_id togglePreviewProgramHotkey = 0;
 	obs_hotkey_id transitionHotkey = 0;
+	obs_hotkey_id statsHotkey = 0;
 	int quickTransitionIdCounter = 1;
 	bool overridingTransition = false;
 
@@ -560,6 +560,11 @@ private slots:
 
 	void CheckDiskSpaceRemaining();
 
+	void ScenesReordered(const QModelIndex &parent, int start, int end,
+			     const QModelIndex &destination, int row);
+
+	void ResetStatsHotkey();
+
 private:
 	/* OBS Callbacks */
 	static void SceneReordered(void *data, calldata_t *params);
@@ -681,6 +686,8 @@ public:
 
 	static OBSBasic *Get();
 
+	const char *GetCurrentOutputPath();
+
 protected:
 	virtual void closeEvent(QCloseEvent *event) override;
 	virtual void changeEvent(QEvent *event) override;
@@ -783,6 +790,7 @@ private slots:
 	void on_transitionAdd_clicked();
 	void on_transitionRemove_clicked();
 	void on_transitionProps_clicked();
+	void on_transitionDuration_valueChanged(int value);
 
 	void on_modeSwitch_clicked();
 

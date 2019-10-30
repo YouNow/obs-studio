@@ -1466,6 +1466,20 @@
             }
         },
         {
+            "name": "ChathostessModels",
+            "servers": [
+                {
+                    "name": "ChathostessModels - Default",
+                    "url": "rtmp://wowza01.foobarweb.com/cmschatsys_video"
+                }
+            ],
+            "recommended": {
+                "keyint": 2,
+                "max video bitrate": 3000,
+                "max audio bitrate": 128
+            }
+        },
+        {
             "name": "Camplace",
             "servers": [
                 {
@@ -1576,6 +1590,23 @@
                 "profile": "high",
                 "max video bitrate": 7000,
                 "max audio bitrate": 128
+            }
+        },
+        {
+            "name": "Stars.AVN.com",
+            "servers": [
+                {
+                    "name": "Default",
+                    "url": "rtmp://alpha.gateway.stars.avn.com/live"
+                }
+            ],
+            "recommended": {
+                "keyint": 2,
+                "profile": "main",
+                "max video bitrate": 2500,
+                "max audio bitrate": 192,
+                "bframes": 0,
+                "x264opts": "tune=zerolatency"
             }
         }
     ]
