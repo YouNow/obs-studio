@@ -7,9 +7,19 @@ endif()
 
 project(obs-scripting)
 
+if(POLICY CMP0068)
+	# RPATH settings on macOS do not affect install_name.
+	cmake_policy(SET CMP0068 NEW)
+endif()
+
 if(MSVC)
 	set(obs-scripting_PLATFORM_DEPS
 		w32-pthreads)
+endif()
+
+if(APPLE)
+	set(obs-scripting_PLATFORM_DEPS
+		objc)
 endif()
 
 option(DISABLE_LUA "Disable Lua scripting support" OFF)
